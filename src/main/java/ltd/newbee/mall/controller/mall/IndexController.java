@@ -8,6 +8,7 @@
  */
 package ltd.newbee.mall.controller.mall;
 
+import ltd.newbee.mall.common.AppResultData;
 import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.common.IndexConfigTypeEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallIndexCarouselVO;
@@ -16,12 +17,16 @@ import ltd.newbee.mall.controller.vo.NewBeeMallIndexConfigGoodsVO;
 import ltd.newbee.mall.service.NewBeeMallCarouselService;
 import ltd.newbee.mall.service.NewBeeMallCategoryService;
 import ltd.newbee.mall.service.NewBeeMallIndexConfigService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -52,5 +57,34 @@ public class IndexController {
         request.setAttribute("newGoodses", newGoodses);//新品
         request.setAttribute("recommendGoodses", recommendGoodses);//推荐商品
         return "mall/index";
+    }
+
+    /**
+     * app index
+     * @param request
+     * @return
+     */
+    @GetMapping({"/app/index"})
+    @ResponseBody
+    public AppResultData appindexPage(HttpServletRequest request, HttpServletResponse response) {
+        AppResultData resultData = new AppResultData();
+        HashMap<String, Object> map = new HashMap<>();
+        List<NewBeeMallIndexCategoryVO> categories = newBeeMallCategoryService.getCategoriesForIndex();
+        if (CollectionUtils.isEmpty(categories)) {
+
+        }
+        List<NewBeeMallIndexCarouselVO> carousels = newBeeMallCarouselService.getCarouselsForIndex(Constants.INDEX_CAROUSEL_NUMBER);
+        List<NewBeeMallIndexConfigGoodsVO> hotGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_HOT.getType(), Constants.INDEX_GOODS_HOT_NUMBER);
+        List<NewBeeMallIndexConfigGoodsVO> newGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_NEW.getType(), Constants.INDEX_GOODS_NEW_NUMBER);
+        List<NewBeeMallIndexConfigGoodsVO> recommendGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_RECOMMOND.getType(), Constants.INDEX_GOODS_RECOMMOND_NUMBER);
+        map.put("categories", categories);//分类数据
+        map.put("carousels", carousels);//轮播图
+        map.put("hotGoodses", hotGoodses);//热销商品
+        map.put("newGoodses", newGoodses);//新品
+        map.put("recommendGoodses", recommendGoodses);//推荐商品
+
+        resultData.setResult(map);
+         return resultData;
+
     }
 }
