@@ -164,9 +164,3 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 
 	![edit](https://newbee-mall.oss-cn-beijing.aliyuncs.com/poster/product/manage-goods-edit-new.png)
 
-- 订单管理
-
-	![order](https://newbee-mall.oss-cn-beijing.aliyuncs.com/poster/product/manage-order.png)
-
-![newbee-mall-info](https://newbee-mall.oss-cn-beijing.aliyuncs.com/poster/store/newbee-mall-info-3.png)
-
