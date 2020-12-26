@@ -170,15 +170,3 @@ newbee-mall 项目是一套电商系统，包括 newbee-mall 商城系统及 new
 
 ![newbee-mall-info](https://newbee-mall.oss-cn-beijing.aliyuncs.com/poster/store/newbee-mall-info-3.png)
 
-## 感谢
-
-- [spring-projects](https://github.com/spring-projects/spring-boot)
-- [thymeleaf](https://github.com/thymeleaf/thymeleaf)
-- [mybatis](https://github.com/mybatis/mybatis-3)
-- [ColorlibHQ](https://github.com/ColorlibHQ/AdminLTE)
-- [tonytomov](https://github.com/tonytomov/jqGrid)
-- [t4t5](https://github.com/t4t5/sweetalert)
-- [skytotwo](https://github.com/skytotwo/Alipay-WeChat-HTML)
-- [wangeditor-team](https://github.com/wangeditor-team/wangEditor)
-- [Vue](https://github.com/vuejs/vue)
-- [Vant](https://github.com/youzan/vant)
