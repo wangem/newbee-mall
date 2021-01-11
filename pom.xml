@@ -11,7 +11,7 @@
     <artifactId>newbee-mall</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>newbee-mall</name>
-    <description>NEWBEE商城</description>
+    <description>DIY商城</description>
 
 
     <parent>
